@@ -170,8 +170,9 @@ class StealthySession(SyncSession, StealthySessionMixin):
                 captcha_x, captcha_y = outer_box["x"] + randint(26, 28), outer_box["y"] + randint(25, 27)
 
                 # Move the mouse to the center of the window, then press and hold the left mouse button
+                page.mouse.move(captcha_x, captcha_y, steps=randint(5, 10))
                 page.mouse.click(captcha_x, captcha_y, delay=randint(100, 200), button="left")
-                self._wait_for_networkidle(page)
+                self._wait_for_networkidle(page, timeout=3000)
 
                 if challenge_type != "embedded":
                     attempts = 0
@@ -455,8 +456,9 @@ class AsyncStealthySession(AsyncSession, StealthySessionMixin):
                 captcha_x, captcha_y = outer_box["x"] + randint(26, 28), outer_box["y"] + randint(25, 27)
 
                 # Move the mouse to the center of the window, then press and hold the left mouse button
+                await page.mouse.move(captcha_x, captcha_y, steps=randint(5, 10))
                 await page.mouse.click(captcha_x, captcha_y, delay=randint(100, 200), button="left")
-                await self._wait_for_networkidle(page)
+                await self._wait_for_networkidle(page, timeout=3000)
 
                 if challenge_type != "embedded":
                     attempts = 0
