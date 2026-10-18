@@ -125,6 +125,10 @@ All AI agents across the ecosystem MUST strictly observe established port alloca
    - **Edge Blur / Fade Gradients**: Provide subtle left and right edge gradient overlays (`tabs-fade-left`, `tabs-fade-right` / `bg-gradient-to-r from-... to-transparent`) indicating overflowing content.
    - **Interactive Chevron Scroll Arrows**: Provide clickable micro-scroll chevron buttons (`ChevronLeft`, `ChevronRight`) positioned over the edge fades that dynamically reveal (`opacity: 1` / `pointer-events: auto`) only when the container can scroll in that direction (`scrollLeft > 4`, `scrollLeft < scrollWidth - clientWidth - 4`).
    - **Active Tab Auto-Centering / Scroll Into View**: Ensure clicking or selecting any tab smoothly scrolls it into visible view (`scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' })`).
+8. **Laya System 1 Classifier Invariant (Port 8026)**:
+   - `laya-serve` on port `8026` is an active, permanent System 1 classification daemon powering target autopilot routing (`route_target`), challenge triage (`triage_challenge`), and RAG prompt injection scanning (`scan_rag_safety`).
+   - When idling at ~0.1% CPU and ~0.2% RAM, it is active and waiting for ~10ms requests. NEVER kill or consider it stalled. Start command: `LAYA_HOST=127.0.0.1 LAYA_PORT=8026 LAYA_DEVICE=cpu LAYA_PRELOAD=0 LAYA_MODELS=english .venv/bin/laya-serve`.
+
 
 
 
