@@ -8,6 +8,7 @@ local_tests/*
 CLAUDE.md
 tasks/*
 /tasks
+graphify-out/
 
 # cached files
 __pycache__/
@@ -70,6 +71,7 @@ venv*/
 pyvenv*/
 pip-wheel-metadata/
 poetry.lock
+uv.lock
 
 # Installer logs
 pip-log.txt
