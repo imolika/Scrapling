@@ -128,6 +128,11 @@ All AI agents across the ecosystem MUST strictly observe established port alloca
 8. **Laya System 1 Classifier Invariant (Port 8026)**:
    - `laya-serve` on port `8026` is an active, permanent System 1 classification daemon powering target autopilot routing (`route_target`), challenge triage (`triage_challenge`), and RAG prompt injection scanning (`scan_rag_safety`).
    - When idling at ~0.1% CPU and ~0.2% RAM, it is active and waiting for ~10ms requests. NEVER kill or consider it stalled. Start command: `LAYA_HOST=127.0.0.1 LAYA_PORT=8026 LAYA_DEVICE=cpu LAYA_PRELOAD=0 LAYA_MODELS=english .venv/bin/laya-serve`.
+9. **Cloud Infrastructure Protection & Anti-Hallucination Invariant**:
+   - AI agents working in this repository MUST NEVER assume, recommend, or execute commands to stop, terminate, or delete remote cloud VMs, databases, or Docker stacks (e.g. `gcloud compute instances stop/delete`, `voice-studio-compute`, `ecosystem-sg`, `do-uat`) based on localized repo scope.
+   - Cloud instances are shared across the entire SSO ecosystem and brain (e.g. `voice-studio-compute` powers `tts-voice-studio` and Ollama; `ecosystem-sg` runs Portainer).
+   - What appears unreferenced in `Scrapling` is actively consumed by companion services. NEVER recommend shutting down cloud infrastructure without explicit cross-ecosystem verification and direct user instruction.
+
 
 
 
