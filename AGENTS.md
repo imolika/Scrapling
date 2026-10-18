@@ -113,3 +113,7 @@ All AI agents across the ecosystem MUST strictly observe established port alloca
    - **NEVER** embed developer personal emails, phone numbers, personal contacts, or private production domain references into repository files, workflows, or documentation.
 4. **Preserve Comments & Docstrings**:
    - Preserve all existing comments and docstrings unrelated to current code edits.
+5. **UI Dropdown & Selection Invariant**:
+   - NEVER use unstyled native HTML `<select>` elements in toolbars or filters (they overlap adjacent UI elements on macOS/Chromium/Safari).
+   - Strictly use anchored custom popovers (`CustomSelect`) with `top-full mt-1.5` / `bottom-full mb-1.5`, `z-50`, and click-outside dismissal.
+
