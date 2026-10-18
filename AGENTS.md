@@ -9,7 +9,7 @@ Operational guidelines, architecture context, and strict invariants for AI codin
 - **Repository**: `common/Scrapling` (Core Engine & MCP Server)
 - **Primary Role**: High-performance, undetectable, adaptive web scraping engine in Python 3.12.
 - **Companion Projects**:
-  - **`scrapling-studio`** (`../../2agents/scrapling-studio`): Visual scraper cockpit (Next.js 16 on `:3060`) and headless spider orchestrator (FastAPI on `:8060`, SQLite `studio.db`, Portainer Stack 23).
+  - **`scrapling-studio`** (`../../2agents/scrapling-studio`): Visual scraper cockpit (Next.js 16 on `:3060`) and headless spider orchestrator (FastAPI on `:8060`, SQLite `studio.db`, Portainer Stack 23). Managed via root single-command controls (`make dev`, `make status`, `./run.sh`).
   - **`sso-brain`** (`../../sso-brain`): Central ecosystem AST knowledge gateway, WebGL architecture graph, and cross-repo dependency registry (Port `:8025`).
 - **Built-in MCP Server**: Native FastMCP endpoint running at `127.0.0.1:8000` (`uv run scrapling mcp --http --host 127.0.0.1 --port 8000 --no-auth`).
 
