@@ -116,4 +116,8 @@ All AI agents across the ecosystem MUST strictly observe established port alloca
 5. **UI Dropdown & Selection Invariant**:
    - NEVER use unstyled native HTML `<select>` elements in toolbars or filters (they overlap adjacent UI elements on macOS/Chromium/Safari).
    - Strictly use anchored custom popovers (`CustomSelect`) with `top-full mt-1.5` / `bottom-full mb-1.5`, `z-50`, and click-outside dismissal.
+6. **Trilingual Localization Invariant (English, Khmer, Chinese)**:
+   - Any UI developed or modified for Scrapling Studio (`scrapling-studio/frontend`) MUST be translated across **English (`en`)**, **Khmer (`km`)**, and **Chinese (`zh`)** via `frontend/src/i18n/translations.ts` and `useTranslation()`.
+   - Never leave hardcoded English strings in UI components. All newly added pages, modals, or controls must declare translations in all three languages.
+
 
