@@ -119,5 +119,12 @@ All AI agents across the ecosystem MUST strictly observe established port alloca
 6. **Trilingual Localization Invariant (English, Khmer, Chinese)**:
    - Any UI developed or modified for Scrapling Studio (`scrapling-studio/frontend`) MUST be translated across **English (`en`)**, **Khmer (`km`)**, and **Chinese (`zh`)** via `frontend/src/i18n/translations.ts` and `useTranslation()`.
    - Never leave hardcoded English strings in UI components. All newly added pages, modals, or controls must declare translations in all three languages.
+7. **UI Horizontal Scroll & Tab Overflow Invariant**:
+   - For all horizontal tab bars, pill ribbons, filter strips, and scrollable button rows across the ecosystem:
+   - **Disable Default Scrollbars**: Always hide browser native scrollbars (`scrollbar-width: none;` / `-ms-overflow-style: none;` / `::-webkit-scrollbar { display: none; }` or Tailwind `no-scrollbar`).
+   - **Edge Blur / Fade Gradients**: Provide subtle left and right edge gradient overlays (`tabs-fade-left`, `tabs-fade-right` / `bg-gradient-to-r from-... to-transparent`) indicating overflowing content.
+   - **Interactive Chevron Scroll Arrows**: Provide clickable micro-scroll chevron buttons (`ChevronLeft`, `ChevronRight`) positioned over the edge fades that dynamically reveal (`opacity: 1` / `pointer-events: auto`) only when the container can scroll in that direction (`scrollLeft > 4`, `scrollLeft < scrollWidth - clientWidth - 4`).
+   - **Active Tab Auto-Centering / Scroll Into View**: Ensure clicking or selecting any tab smoothly scrolls it into visible view (`scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' })`).
+
 
 
