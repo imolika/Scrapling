@@ -147,9 +147,15 @@ class SyncSession:
             pass
 
     def _wait_for_page_stability(self, page: Page | Frame, load_dom: bool, network_idle: bool):
-        page.wait_for_load_state(state="load")
         if load_dom:
-            page.wait_for_load_state(state="domcontentloaded")
+            try:
+                page.wait_for_load_state(state="domcontentloaded", timeout=8000)
+            except Exception:
+                pass
+        try:
+            page.wait_for_load_state(state="load", timeout=8000)
+        except Exception:
+            pass
         if network_idle:
             self._wait_for_networkidle(page)
 
@@ -347,9 +353,15 @@ class AsyncSession:
             pass
 
     async def _wait_for_page_stability(self, page: AsyncPage | AsyncFrame, load_dom: bool, network_idle: bool):
-        await page.wait_for_load_state(state="load")
         if load_dom:
-            await page.wait_for_load_state(state="domcontentloaded")
+            try:
+                await page.wait_for_load_state(state="domcontentloaded", timeout=8000)
+            except Exception:
+                pass
+        try:
+            await page.wait_for_load_state(state="load", timeout=8000)
+        except Exception:
+            pass
         if network_idle:
             await self._wait_for_networkidle(page)
 
